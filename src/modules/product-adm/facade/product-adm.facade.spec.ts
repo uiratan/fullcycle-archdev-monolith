@@ -1,9 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
-import ProductModel from "../repository/product.model";
-import ProductRepository from "../repository/product.repository";
-import AddProductUsecase from "../usecase/add-product/add-product.usecase";
-import ProductAdmFacade from "./product-adm.facade";
 import ProductAdmFacadeFactory from "../factory/facade.factory";
+import ProductModel from "../repository/product.model";
 
 describe("Product Adm Facade test", () => {
 
@@ -27,7 +24,6 @@ describe("Product Adm Facade test", () => {
 
   it("should add a product", async () => {
     const productFacade = ProductAdmFacadeFactory.create();
-
     const input = {
       id: "1",
       name: "Product 1",
@@ -35,7 +31,6 @@ describe("Product Adm Facade test", () => {
       purchasePrice: 100,
       stock: 10
     }
-
     await productFacade.addProduct(input);
 
     const product = await ProductModel.findOne({ where: { id: "1" } });
@@ -49,7 +44,7 @@ describe("Product Adm Facade test", () => {
 
   });
 
-  it("it should check the stock", async () => {
+  it("should check a product stock", async () => {
     const productFacade = ProductAdmFacadeFactory.create();
     const input = {
       id: "1",
@@ -58,7 +53,6 @@ describe("Product Adm Facade test", () => {
       purchasePrice: 10,
       stock: 10,
     };
-
     await productFacade.addProduct(input);
 
     const result = await productFacade.checkStock({ productId: "1" });

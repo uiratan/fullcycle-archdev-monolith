@@ -14,8 +14,8 @@ const MockRepository = () => {
   return {
     add: jest.fn(),
     find: jest.fn().mockReturnValue(Promise.resolve(product)),
-  }
-}
+  };
+};
 
 describe("Check stock usecase unit test", () => {
 
@@ -35,7 +35,6 @@ describe("Check stock usecase unit test", () => {
     expect(productRepository.find).toHaveBeenCalled();
     expect(result.productId).toBe("1");
     expect(result.stock).toBe(10);
-
 
   });
 
