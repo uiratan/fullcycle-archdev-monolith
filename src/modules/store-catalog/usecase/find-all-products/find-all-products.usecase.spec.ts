@@ -30,7 +30,7 @@ describe('Find All Products Usecase unit test', () => {
     const usecase = new FindAllProductsUsecase(productRepository);
 
     const result = await usecase.execute();
-
+    
     expect(productRepository.findAll).toHaveBeenCalled();
     expect(result.products.length).toBe(2);
     expect(result.products[0].id).toBe(product.id.id);
