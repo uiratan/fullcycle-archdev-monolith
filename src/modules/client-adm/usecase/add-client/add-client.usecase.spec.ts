@@ -22,9 +22,6 @@ describe("Add Client usecase unit test", () => {
 
     const result = await usecase.execute(input);
 
-    console.log(result);
-    
-
     expect(clientRepository.add).toHaveBeenCalled();
     expect(result.id).toBeDefined();
     expect(result.name).toEqual(input.name);
