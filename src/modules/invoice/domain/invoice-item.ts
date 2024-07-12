@@ -5,6 +5,8 @@ type InvoiceItemProps = {
   id?: Id;
   name: string;
   price: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 };
 
 export default class InvoiceItem extends BaseEntity {

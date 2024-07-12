@@ -8,7 +8,7 @@ type InvoiceProps = {
   id?: Id;
   name: string;
   document: string;
-  address: Address;
+  address?: Address;
   items: InvoiceItem[];
   createdAt?: Date;
   updatedAt?: Date;
