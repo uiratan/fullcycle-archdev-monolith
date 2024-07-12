@@ -36,6 +36,7 @@ describe("Generate invoice usecase unit test", () => {
     const MockRepository = () => {
       return {
         generate: jest.fn().mockReturnValue(Promise.resolve(invoice)),
+        find: jest.fn()
       };
     };
 
