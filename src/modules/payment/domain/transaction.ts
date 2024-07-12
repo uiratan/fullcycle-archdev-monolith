@@ -7,11 +7,11 @@ type TransactionProps = {
   amount: number;
   orderId: string;
   status?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 };
 
-export class Transaction extends BaseEntity implements AggregateRoot{
+export class Transaction extends BaseEntity implements AggregateRoot {
 
   private _amount: number;
   private _orderId: string;
