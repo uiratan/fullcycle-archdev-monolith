@@ -1,4 +1,5 @@
 import UseCaseInterface from "../../../@shared/domain/usecase/use-case.interface";
+import Id from "../../../@shared/domain/value-object/id.value-object";
 import Address from "../../domain/address.value-object";
 import Invoice from "../../domain/invoice";
 import InvoiceItem from "../../domain/invoice-item";
@@ -22,6 +23,7 @@ export default class GenerateInvoiceUseCase implements UseCaseInterface {
         zipCode: input.zipCode
       }),
       items: input.items.map((item) => new InvoiceItem({
+        id: new Id(item.id),
         name: item.name,
         price: item.price
       }))
