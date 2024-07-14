@@ -1,6 +1,6 @@
 import UseCaseInterface from "../../../@shared/domain/usecase/use-case.interface";
 import Id from "../../../@shared/domain/value-object/id.value-object";
-import Address from "../../domain/address.value-object";
+import Address from "../../../@shared/domain/value-object/address.value-object";
 import Invoice from "../../domain/invoice";
 import InvoiceItem from "../../domain/invoice-item";
 import InvoiceGateway from "../../gateway/invoice.gateway";

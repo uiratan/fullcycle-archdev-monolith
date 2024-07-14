@@ -3,7 +3,7 @@ import InvoiceModel from "./invoice.model";
 import InvoiceRepository from "./invoice.repository";
 import Invoice from "../domain/invoice";
 import Id from "../../@shared/domain/value-object/id.value-object";
-import Address from "../domain/address.value-object";
+import Address from "../../@shared/domain/value-object/address.value-object";
 import InvoiceItem from "../domain/invoice-item";
 import InvoiceItemModel from "./invoice-item.model";
 

@@ -1,5 +1,5 @@
 import { Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
-import Address from "../domain/address.value-object";
+import Address from "../../@shared/domain/value-object/address.value-object";
 import InvoiceItemModel from "./invoice-item.model";
 
 @Table({

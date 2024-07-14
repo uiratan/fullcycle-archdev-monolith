@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize-typescript";
+import Address from "../../@shared/domain/value-object/address.value-object";
 import { ClientModel } from "../repository/client.model";
 import ClientRepository from "../repository/client.repository";
 import AddClientUsecase from "../usecase/add-client/add-client.usecase";
@@ -34,19 +35,30 @@ describe("ClientAdmFacade test", () => {
 
     const input = {
       id: "1",
-      name: "Client 1",
-      email: "a@a.com",
-      address: "client 1 address",
-    }    
+      name: "Lucian",
+      email: "lucian@xpto.com",
+      document: "000",
+      address: new Address({
+        street: "Rua 123",
+        number: "99",
+        complement: "Casa Verde",
+        city: "Criciúma",
+        state: "SC",
+        zipCode: "88888-888",
+      }),
+    }
+
 
     await facade.add(input);
 
     const client = await ClientModel.findOne({ where: { id: "1" } });
 
-    expect(client).toBeDefined();
-    expect(client.name).toEqual(input.name);
-    expect(client.email).toEqual(input.email);
-    expect(client.address).toEqual(input.address);
+    expect(client).toBeDefined()
+    expect(client.id).toBe(input.id)
+    expect(client.name).toBe(input.name)
+    expect(client.email).toBe(input.email)
+    expect(client.document).toBe(input.document)
+    expect(client.street).toBe(input.address.street)
   });
 
   it("should find a client", async () => {
@@ -57,26 +69,36 @@ describe("ClientAdmFacade test", () => {
       findUsecase: findUsecase,
     });
 
-    await ClientModel.create({
-      id: "1",
-      name: "Client 1",
-      email: "a@a.com",
-      address: "client 1 address",
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    });
-
     const input = {
       id: "1",
+      name: "Lucian",
+      email: "lucian@xpto.com",
+      document: "1234-5678",
+      street: "Rua 123",
+      number: "99",
+      complement: "Casa Verde",
+      city: "Criciúma",
+      state: "SC",
+      zipcode: "88888-888",
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }
 
-    const clientDb = await facade.find(input);
+    await ClientModel.create(input);
 
-    expect(clientDb).toBeDefined();
-    expect(clientDb.id).toEqual(input.id);
-    expect(clientDb.name).toEqual("Client 1");
-    expect(clientDb.email).toEqual("a@a.com");
-    expect(clientDb.address).toEqual("client 1 address");
+    const client = await facade.find({ id: "1" });
+
+    expect(client).toBeDefined();
+    expect(client.id).toBe(input.id);
+    expect(client.name).toBe(input.name);
+    expect(client.email).toBe(input.email);
+    expect(client.document).toBe(input.document);
+    expect(client.address.street).toBe(input.street);
+    expect(client.address.number).toBe(input.number);
+    expect(client.address.complement).toBe(input.complement);
+    expect(client.address.city).toBe(input.city);
+    expect(client.address.state).toBe(input.state);
+    expect(client.address.zipCode).toBe(input.zipcode);
   });
 
 });
