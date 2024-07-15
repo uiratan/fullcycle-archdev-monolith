@@ -3,7 +3,7 @@ import Address from "../../@shared/domain/value-object/address.value-object";
 import InvoiceItemModel from "./invoice-item.model";
 
 @Table({
-  tableName: "invoices",
+  tableName: "invoice",
   timestamps: false
 })
 export default class InvoiceModel extends Model {
