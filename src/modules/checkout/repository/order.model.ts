@@ -4,7 +4,7 @@ import { ClientOrderModel } from "./client.model";
 import ProductOrderModel from "./product.model";
 
 @Table({
-  tableName: "orders",
+  tableName: "order",
   timestamps: false  
 })
 export class OrderModel extends Model {

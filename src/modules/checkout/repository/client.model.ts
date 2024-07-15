@@ -2,7 +2,7 @@ import { Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript"
 import { OrderModel } from "./order.model";
 
 @Table({
-  tableName: "clients",
+  tableName: "client",
   timestamps: false
 })
 export class ClientOrderModel extends Model {
