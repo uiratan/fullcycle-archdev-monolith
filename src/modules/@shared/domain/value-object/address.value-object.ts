@@ -10,12 +10,12 @@ type AddressProps = {
 };
 
 export default class Address implements ValueObject {
-  _street: string;
-  _number: string;
-  _complement: string;
-  _city: string;
-  _state: string;
-  _zipCode: string;
+  private _street: string;
+  private _number: string;
+  private _complement: string;
+  private _city: string;
+  private _state: string;
+  private _zipCode: string;
 
   constructor(props: AddressProps) {
     this._street = props.street;

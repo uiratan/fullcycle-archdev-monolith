@@ -16,6 +16,8 @@ export default class ClientAdmFacade implements ClientAdmFacadeInterface {
   }
   
   async add(input: AddClientFacadeInputDto): Promise<void> {
+    // console.log(input);
+    
     await this._addUsecase.execute(input);
   }
 

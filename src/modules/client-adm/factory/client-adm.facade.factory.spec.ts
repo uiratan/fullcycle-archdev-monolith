@@ -27,15 +27,15 @@ describe("ClientAdmFacade test", () => {
 
     const input = {
       id: "1",
-      name: "Lucian",
-      email: "lucian@xpto.com",
+      name: "Client 1",
+      email: "client@x.com",
       document: "000",
       address: new Address({
         street: "Rua 123",
         number: "99",
-        complement: "Casa Verde",
-        city: "Criciúma",
-        state: "SC",
+        complement: "Naquela casa",
+        city: "Somewhere",
+        state: "PI",
         zipCode: "88888-888",
       }),
     }
@@ -58,14 +58,14 @@ describe("ClientAdmFacade test", () => {
 
     const input = {
       id: "1",
-      name: "Lucian",
-      email: "lucian@xpto.com",
+      name: "Client 1",
+      email: "client@x.com",
       document: "1234-5678",
       street: "Rua 123",
       number: "99",
-      complement: "Casa Verde",
-      city: "Criciúma",
-      state: "SC",
+      complement: "Naquela casa",
+      city: "Somewhere",
+      state: "PI",
       zipcode: "88888-888",
       createdAt: new Date(),
       updatedAt: new Date(),
