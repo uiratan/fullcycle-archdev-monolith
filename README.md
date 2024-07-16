@@ -127,3 +127,4 @@ GET /invoice/<id>
 
 Implemente os testes end-to-end destes endpoints com a lib supertest, ao rodar o comando "npm run test" a aplicação deve executar todos os testes. Se tiver dúvidas de como usar o supertest acesse o módulo de Clean Arch no módulo Camada de API.
 
+[Branch do desafio resolvido](https://github.com/uiratan/fullcycle-archdev-monolith/tree/api)
