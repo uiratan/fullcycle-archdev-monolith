@@ -12,18 +12,19 @@ export default class ProductRepository implements ProductGateway {
         id: new Id(product.id),
         name: product.name,
         description: product.description,
-        salesPrice: product.salesPrice
+        salesPrice: product.salesPrice === null ? (product.purchasePrice * 1.2) : product.salesPrice
       })
     );
   }
 
   async find(id: string): Promise<Product> {
     const product = await ProductModel.findOne({ where: { id: id } });
+
     return new Product({
       id: new Id(product.id),
       name: product.name,
       description: product.description,
-      salesPrice: product.salesPrice
+      salesPrice: product.salesPrice === null ? (product.purchasePrice * 1.2) : product.salesPrice
     })
   }
 

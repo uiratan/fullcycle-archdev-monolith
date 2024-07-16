@@ -16,12 +16,12 @@ export default class ClientRepository implements ClientGateway {
       complement: client.address.complement,
       city: client.address.city,
       state: client.address.state,
-      zipcode: client.address.zipCode,
+      zipCode: client.address.zipCode,
       createdAt: client.createdAt,
       updatedAt: client.updatedAt
     });
   }
-  
+
   async find(id: string): Promise<Client> {
     const client = await ClientModel.findOne({ where: { id } });
 
@@ -35,13 +35,13 @@ export default class ClientRepository implements ClientGateway {
       email: client.email,
       document: client.document,
       address: new Address({
-        street:client.street,
+        street: client.street,
         number: client.number,
         complement: client.complement,
         city: client.city,
         state: client.state,
-        zipCode: client.zipcode,
-    }),
+        zipCode: client.zipCode,
+      }),
       createdAt: client.createdAt,
       updatedAt: client.updatedAt
     });

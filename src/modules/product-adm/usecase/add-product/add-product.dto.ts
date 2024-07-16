@@ -3,7 +3,6 @@ export interface AddProductInputDto{
   name: string;
   description: string;
   purchasePrice: number;
-  salesPrice: number;
   stock: number;
 };
 
@@ -12,7 +11,6 @@ export interface AddProductOutputDto {
   name: string;
   description: string;
   purchasePrice: number;
-  salesPrice: number;
   stock: number;
   createdAt: Date;
   updatedAt: Date;

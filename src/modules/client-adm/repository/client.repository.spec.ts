@@ -55,7 +55,7 @@ describe("Client repository unit test", () => {
     expect(clientDb.complement).toEqual(client.address.complement)
     expect(clientDb.city).toEqual(client.address.city)
     expect(clientDb.state).toEqual(client.address.state)
-    expect(clientDb.zipcode).toEqual(client.address.zipCode)
+    expect(clientDb.zipCode).toEqual(client.address.zipCode)
     expect(clientDb.createdAt).toStrictEqual(client.createdAt)
     expect(clientDb.updatedAt).toStrictEqual(client.updatedAt)
   });
@@ -71,7 +71,7 @@ describe("Client repository unit test", () => {
       complement: "Naquela casa",
       city: "Somewhere",
       state: "PI",
-      zipcode: "88888-888",      
+      zipCode: "88888-888",      
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -88,7 +88,7 @@ describe("Client repository unit test", () => {
     expect(result.address.complement).toEqual(client.complement)
     expect(result.address.city).toEqual(client.city)
     expect(result.address.state).toEqual(client.state)
-    expect(result.address.zipCode).toEqual(client.zipcode)
+    expect(result.address.zipCode).toEqual(client.zipCode)
     expect(result.createdAt).toStrictEqual(client.createdAt)
     expect(result.updatedAt).toStrictEqual(client.updatedAt)
 
