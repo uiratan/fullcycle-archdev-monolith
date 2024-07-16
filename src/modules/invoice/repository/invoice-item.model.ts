@@ -2,30 +2,31 @@ import { BelongsTo, Column, ForeignKey, Model, PrimaryKey, Table } from "sequeli
 import InvoiceModel from "./invoice.model";
 
 @Table({
-  tableName: "invoice_item",
+  modelName: 'invoice-item-table',
+  tableName: 'invoice_item',
   timestamps: false
 })
 export default class InvoiceItemModel extends Model {
   @PrimaryKey
-  @Column({allowNull: false})
-  id: string;
+  @Column({ allowNull: false })
+  declare id: string;
 
-  @Column({allowNull: false})
-  name: string;
+  @Column({ allowNull: false })
+  declare name: string;
 
-  @Column({allowNull: false})
-  price: number;
+  @Column({ allowNull: false })
+  declare price: number;
 
   @ForeignKey(() => InvoiceModel)
-  @Column({allowNull: false})
-  invoice_id: string;
+  @Column({ allowNull: false })
+  declare invoice_id: string;
 
   @BelongsTo(() => InvoiceModel)
-  invoice: InvoiceModel;
+  declare invoice: InvoiceModel;
 
-  @Column({allowNull: false})
-  createdAt?: Date;
+  @Column({ allowNull: false })
+  declare createdAt?: Date;
 
-  @Column({allowNull: false})
-  updatedAt?: Date;
+  @Column({ allowNull: false })
+  declare updatedAt?: Date;
 }

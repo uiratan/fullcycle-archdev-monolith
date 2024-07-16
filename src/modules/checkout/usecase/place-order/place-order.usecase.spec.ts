@@ -1,5 +1,5 @@
 import Id from "../../../@shared/domain/value-object/id.value-object";
-import { Product } from "../../domain/product.entity";
+import Product from "../../domain/product.entity";
 import { PlaceOrderInputDto } from "./place-order.dto";
 import PlaceOrderUsecase from "./place-order.usecase";
 
@@ -75,7 +75,7 @@ describe("Place Order Usecase unit test", () => {
 
   describe("getProducts method", () => {
     beforeAll(() => {
-      jest.useFakeTimers("modern");
+      jest.useFakeTimers();
       jest.setSystemTime(mockDate);
     });
 
@@ -128,7 +128,7 @@ describe("Place Order Usecase unit test", () => {
 
   describe("execute method", () => {
     beforeAll(() => {
-      jest.useFakeTimers("modern");
+      jest.useFakeTimers();
       jest.setSystemTime(mockDate);
     });
 

@@ -5,9 +5,9 @@ import InvoiceFacadeInterface from "../../../invoice/facade/invoice.facade.inter
 import PaymentFacadeInterface from "../../../payment/facade/facade.interface";
 import ProductAdmFacadeInterface, { CheckStockFacadeOutputDto } from "../../../product-adm/facade/product-adm.facade.interface";
 import StoreCatalogFacadeInterface from "../../../store-catalog/facade/store-catalog.facade.interface";
-import { Client } from "../../domain/client.entity";
+import Client from "../../domain/client.entity";
 import Order from "../../domain/order.entity";
-import { Product } from "../../domain/product.entity";
+import Product from "../../domain/product.entity";
 import CheckoutGateway from "../../gateway/checkout.gateway";
 import { PlaceOrderInputDto, PlaceOrderOutputDto } from "./place-order.dto";
 

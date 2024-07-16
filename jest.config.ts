@@ -73,6 +73,8 @@ export default {
   // moduleDirectories: [
   //   "node_modules"
   // ],
+  // moduleDirectories: ["src"],
+
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -89,6 +91,8 @@ export default {
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
+  // modulePathIgnorePatterns: ["<rootDir>/node_modules/"],
+
 
   // Activates notifications for test results
   // notify: false,
