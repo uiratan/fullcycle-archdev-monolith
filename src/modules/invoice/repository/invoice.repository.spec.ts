@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize-typescript";
-import InvoiceModel from "./invoice.model";
-import InvoiceRepository from "./invoice.repository";
-import Invoice from "../domain/invoice";
-import Id from "../../@shared/domain/value-object/id.value-object";
 import Address from "../../@shared/domain/value-object/address.value-object";
+import Id from "../../@shared/domain/value-object/id.value-object";
+import Invoice from "../domain/invoice";
 import InvoiceItem from "../domain/invoice-item";
 import InvoiceItemModel from "./invoice-item.model";
+import InvoiceModel from "./invoice.model";
+import InvoiceRepository from "./invoice.repository";
 
 describe("Invoice repository unit test", () => {
   let sequelize: Sequelize;
@@ -18,7 +18,7 @@ describe("Invoice repository unit test", () => {
       sync: { force: true },
     });
 
-    sequelize.addModels([InvoiceItemModel, InvoiceModel, ]);
+    sequelize.addModels([InvoiceModel, InvoiceItemModel ]);
     await sequelize.sync();
   });
 

@@ -2,7 +2,8 @@ import { Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript"
 import OrderModel from "./order.model";
 
 @Table({
-  tableName: "client",
+  modelName: 'client-table',
+  tableName: 'client',
   timestamps: false
 })
 export default class ClientOrderModel extends Model {
@@ -18,9 +19,6 @@ export default class ClientOrderModel extends Model {
 
   @Column({ allowNull: false })
   declare address: string;
-
-  @HasMany(() => OrderModel)
-  declare players: OrderModel[];
 
   @Column({ allowNull: false })
   declare createdAt: Date;

@@ -23,8 +23,7 @@ export default class OrderRepository implements CheckoutGateway {
         salesPrice: product.salesPrice,
         createdAt: product.createdAt,
         updatedAt: product.updatedAt
-      })
-      ),
+      })),
       invoiceId: order.invoiceId,
       createdAt: order.createdAt,
       updatedAt: order.updatedAt

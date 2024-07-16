@@ -1,6 +1,7 @@
 import AggregateRoot from "../../@shared/domain/entity/aggregate-root.interface"
 import BaseEntity from "../../@shared/domain/entity/base.entity"
 import Id from "../../@shared/domain/value-object/id.value-object"
+import Order from "./order.entity";
 
 type ClientProps = {
   id?: Id;
@@ -9,7 +10,7 @@ type ClientProps = {
   address: string;
 }
 
-export class Client extends BaseEntity implements AggregateRoot {
+export default class Client extends BaseEntity implements AggregateRoot {
   private _name: string;
   private _email: string;
   private _address: string;

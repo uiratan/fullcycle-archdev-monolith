@@ -2,34 +2,32 @@ import { BelongsTo, Column, ForeignKey, Model, PrimaryKey, Table } from "sequeli
 import OrderModel from "./order.model";
 
 @Table({
-  tableName: 'product',
+  modelName: 'product-table',
+  tableName: 'product_order',
   timestamps: false
 })
 export default class ProductOrderModel extends Model {
-
   @PrimaryKey
   @Column({ allowNull: false })
-  id: string;
+  declare id: string;
 
   @Column({ allowNull: false })
-  name: string;
+  declare name: string;
 
   @Column({ allowNull: true })
-  description: string;
+  declare description: string;
 
   @Column({ allowNull: true })
-  salesPrice: number;
+  declare salesPrice: number;
 
   @ForeignKey(() => OrderModel)
-  order_id: string;
-
-  @BelongsTo(() => OrderModel)
-  order: OrderModel;
+  @Column({ allowNull: false })
+  declare order_id: string;
 
   @Column({ allowNull: false })
-  createdAt: Date;
+  declare createdAt: Date;
 
   @Column({ allowNull: false })
-  updatedAt: Date;
+  declare updatedAt: Date;
 
 }
