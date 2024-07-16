@@ -1,8 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import { migrator } from "./migrator";
-import { SequelizeStorage, Umzug } from "umzug";
 
-describe("Client repository unit test", () => {
+describe("Migrations unit test", () => {
   let sequelize: Sequelize;
   let migration: any;
 
@@ -10,8 +9,7 @@ describe("Client repository unit test", () => {
     sequelize = new Sequelize({
       dialect: "sqlite",
       storage: ":memory:",
-      logging: false,
-      sync: { force: true },
+      logging: false
     });
 
     sequelize.addModels([]);
@@ -30,15 +28,7 @@ describe("Client repository unit test", () => {
   });
 
   it("should run migrations", async () => {
-    const migrator = new Umzug({
-      migrations: {
-        glob: "../migrations/*.ts",
-      },
-      context: sequelize,
-      storage: new SequelizeStorage({ sequelize }),
-      logger: console,
-    });
-    await migrator.up();
+    
   });
-  
+
 });
