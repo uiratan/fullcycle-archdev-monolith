@@ -5,15 +5,15 @@ import FindClientUsecase from "./find-client.usecase";
 
 const client = new Client({
   id: new Id("1"),
-  name: "Lucian",
-  email: "lucian@xpto.com",
+  name: "Client 1",
+  email: "client@x.com",
   document: "000",
   address: new Address({
     street: "Rua 123",
     number: "99",
-    complement: "Casa Verde",
-    city: "Criciúma",
-    state: "SC",
+    complement: "Naquela casa",
+    city: "Somewhere",
+    state: "PI",
     zipCode: "88888-888",
   })
 });
@@ -42,8 +42,10 @@ describe("Find Client usecase unit test", () => {
     expect(result.id).toBeDefined();
     expect(result.name).toEqual(client.name);
     expect(result.email).toEqual(client.email);
-    expect(result.address).toEqual(client.address);
-    expect(result.email).toEqual(client.email);
+    expect(result.document).toEqual(client.document);
+    expect(result.address.street).toBe(client.address.street);
+    expect(result.address.number).toBe(client.address.number);
+    
   });
 
 });

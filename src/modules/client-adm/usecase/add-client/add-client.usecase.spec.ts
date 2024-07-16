@@ -16,17 +16,17 @@ describe("Add Client usecase unit test", () => {
     const usecase = new AddClientUsecase(clientRepository); // ainda nao existe, teste vai falhar
     const input = {
       id: "1",
-      name: "Lucian",
-      email: "lucian@xpto.com",
+      name: "Client 1",
+      email: "client@x.com",
       document: "000",
-      address: new Address({
+      address: {
         street: "Rua 123",
         number:"99",
-        complement: "Casa Verde",
-        city: "Criciúma",
-        state: "SC",
+        complement: "Naquela casa",
+        city: "Somewhere",
+        state: "PI",
         zipCode:"88888-888",
-      }),
+      },
     }
 
     const result = await usecase.execute(input);
