@@ -13,6 +13,7 @@ import { migrator } from "../db-migrations/config/migrator";
 import { checkoutRoute } from "./routes/checkout.route";
 import { clientRoute } from "./routes/client.route";
 import { productRoute } from "./routes/product.route";
+import { invoiceRoute } from "./routes/invoice.route";
 
 export const app: Express = express();
 
@@ -21,7 +22,7 @@ app.use(express.json());
 app.use("/client", clientRoute);
 app.use("/product", productRoute);
 app.use("/checkout", checkoutRoute);
-// app.use("/invoice", invoiceRoute);
+app.use("/invoice", invoiceRoute);
 
 export let sequelize: Sequelize;
 let migration: Umzug<any>;
