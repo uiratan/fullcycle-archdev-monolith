@@ -4,13 +4,16 @@ import { Umzug } from "umzug";
 import ClientModel from "../../modules/client-adm/repository/client.model";
 import { migrator } from "../db-migrations/config/migrator";
 import { clientRoute } from "./routes/client.route";
+import { productRoute } from "./routes/product.route";
+import AdmProductModel from "../../modules/product-adm/repository/product.model";
+import StoreCatalogProductModel from "../../modules/store-catalog/repository/product.model";
 
 export const app: Express = express();
 
 app.use(express.json());
 
 app.use("/client", clientRoute);
-// app.use("/product", productRoute);
+app.use("/product", productRoute);
 // app.use("/checkout", checkoutRoute);
 // app.use("/invoice", invoiceRoute);
 
@@ -26,8 +29,8 @@ async function setupDb() {
  
   sequelize.addModels([      
     ClientModel,
-    // AdmProductModel,
-    // StoreCatalogProductModel,
+    AdmProductModel,
+    StoreCatalogProductModel,
     // OrderModel, 
     // OrderItemModel,
     // InvoiceModel, 

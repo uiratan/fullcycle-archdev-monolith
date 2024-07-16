@@ -17,14 +17,10 @@ export default class AddProductUsecase {
       name: input.name,
       description: input.description,
       purchasePrice: input.purchasePrice,
-      salesPrice: input.salesPrice,
       stock: input.stock
     };
 
     const product = new Product(props);
-
-    // adicionar esse product no repositório de products, seja banco, api, arquivo, etc 
-    // através da gateway
     this._productRepository.add(product);
 
     return {
@@ -32,7 +28,6 @@ export default class AddProductUsecase {
       name: product.name,
       description: product.description,
       purchasePrice: product.purchasePrice,
-      salesPrice: product.salesPrice,
       stock: product.stock,
       createdAt: product.createdAt,
       updatedAt: product.updatedAt
