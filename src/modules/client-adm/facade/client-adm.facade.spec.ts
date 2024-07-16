@@ -79,7 +79,7 @@ describe("ClientAdmFacade test", () => {
       complement: "Naquela casa",
       city: "Somewhere",
       state: "PI",
-      zipcode: "88888-888",
+      zipCode: "88888-888",
       createdAt: new Date(),
       updatedAt: new Date(),
     }
@@ -98,7 +98,7 @@ describe("ClientAdmFacade test", () => {
     expect(client.address.complement).toBe(input.complement);
     expect(client.address.city).toBe(input.city);
     expect(client.address.state).toBe(input.state);
-    expect(client.address.zipCode).toBe(input.zipcode);
+    expect(client.address.zipCode).toBe(input.zipCode);
   });
 
 });

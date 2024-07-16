@@ -35,7 +35,7 @@ export default class ClientModel extends Model {
   declare state: string
 
   @Column({ allowNull: false })
-  declare zipcode: string
+  declare zipCode: string
 
   @Column({ allowNull: false })
   declare createdAt: Date
