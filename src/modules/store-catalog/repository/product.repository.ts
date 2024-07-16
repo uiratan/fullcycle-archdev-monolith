@@ -12,7 +12,7 @@ export default class ProductRepository implements ProductGateway {
         id: new Id(product.id),
         name: product.name,
         description: product.description,
-        salesPrice: product.salesPrice
+        salesPrice: product.salesPrice === null ? (product.purchasePrice * 1.2) : product.salesPrice
       })
     );
   }
@@ -24,7 +24,7 @@ export default class ProductRepository implements ProductGateway {
       id: new Id(product.id),
       name: product.name,
       description: product.description,
-      salesPrice: product.salesPrice
+      salesPrice: product.salesPrice === null ? (product.purchasePrice * 1.2) : product.salesPrice
     })
   }
 
