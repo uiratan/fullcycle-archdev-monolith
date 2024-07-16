@@ -1,35 +1,29 @@
 import Order from "../domain/order.entity";
 import CheckoutGateway from "../gateway/checkout.gateway";
-import ClientOrderModel from "./client.model";
 import OrderModel from "./order.model";
-import ProductOrderModel from "./product.model";
+import OrderItemModel from "./order-item.model";
 
 export default class OrderRepository implements CheckoutGateway {
   async addOrder(order: Order): Promise<void> {
-    await OrderModel.create({
+    const result = await OrderModel.create({
       id: order.id.id,
-      client: {
-        id: order.client.id.id,
-        name: order.client.name,
-        email: order.client.email,
-        address: order.client.address,
-        createdAt: order.client.createdAt,
-        updatedAt: order.client.updatedAt
-      },
+      clientId: order.clientId,
       products: order.products.map((product) => ({
         id: product.id.id,
         name: product.name,
         description: product.description,
         salesPrice: product.salesPrice,
+        productId: product.productId,
         createdAt: product.createdAt,
         updatedAt: product.updatedAt
       })),
       invoiceId: order.invoiceId,
+      status: order.status,
       createdAt: order.createdAt,
       updatedAt: order.updatedAt
     },
-      { include: [ClientOrderModel, ProductOrderModel] }
-    );
+      { include: [ OrderItemModel] }
+    );    
   }
 
   findOrder(id: string): Promise<Order | null> {

@@ -30,7 +30,7 @@ describe("E2E test for product", () => {
     const response = await request(app)
       .post("/product")
       .send({
-        id: "111",
+        id: "1",
         name: "product 1",
         description: "description 1",
         purchasePrice: 100,
@@ -38,7 +38,7 @@ describe("E2E test for product", () => {
       });
 
     expect(response.status).toBe(200);
-    expect(response.body.id).toBe("111");    
+    expect(response.body.id).toBe("1");    
     expect(response.body.name).toBe("product 1");    
     expect(response.body.description).toBe("description 1");    
     expect(response.body.purchasePrice).toBe(100);

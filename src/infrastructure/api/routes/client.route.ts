@@ -22,9 +22,7 @@ clientRoute.post("/", async (req: Request, res: Response) => {
   
   try {
     await clientFacade.add(clientDto);
-    const output = await clientFacade.find({ id: "111" });
-    // console.log(output);
-    
+    const output = await clientFacade.find({ id: clientDto.id });
     res.send(output);
   } catch (err) {
     res.status(500).send(err);

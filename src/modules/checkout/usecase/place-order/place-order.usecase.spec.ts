@@ -1,5 +1,5 @@
 import Id from "../../../@shared/domain/value-object/id.value-object";
-import Product from "../../domain/product.entity";
+import OrderItem from "../../domain/order-item.entity";
 import { PlaceOrderInputDto } from "./place-order.dto";
 import PlaceOrderUsecase from "./place-order.usecase";
 
@@ -105,7 +105,8 @@ describe("Place Order Usecase unit test", () => {
           id: "0",
           name: "product 0",
           description: "product 0",
-          salesPrice: 1
+          salesPrice: 1,
+          productId: "0"
         }),
       };
 
@@ -113,11 +114,12 @@ describe("Place Order Usecase unit test", () => {
       placerOrderUseCase["_catalogFacade"] = mockCatalogFacade;
 
       await expect(placerOrderUseCase["getProduct"]("0")).resolves.toEqual(
-        new Product({
-          id: new Id("0"),
+        new OrderItem({
+          id: expect.anything(),
           name: "product 0",
           description: "product 0",
-          salesPrice: 1
+          salesPrice: 1,
+          productId: "0"
         })
       );
 
@@ -219,26 +221,28 @@ describe("Place Order Usecase unit test", () => {
       };
 
       const placerOrderUseCase = new PlaceOrderUsecase(
+        mockCheckoutRepository as any,
         mockClientFacade as any,
         null,
         null,
-        mockCheckoutRepository as any,
         mockInvoiceFacade as any,
         mockPaymentFacade
       );
 
       const products = {
-        "1": new Product({
+        "1": new OrderItem({
           id: new Id("1"),
           name: "Product 1",
           description: "some description",
           salesPrice: 40,
+          productId: "1"
         }),
-        "2": new Product({
+        "2": new OrderItem({
           id: new Id("2"),
           name: "Product 2",
           description: "some description",
           salesPrice: 30,
+          productId: "2"
         }),
       };
 

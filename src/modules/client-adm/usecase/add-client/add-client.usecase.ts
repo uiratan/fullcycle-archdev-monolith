@@ -49,9 +49,6 @@ export default class AddClientUsecase implements UseCaseInterface {
       updatedAt: client.updatedAt
     };
 
-    // console.log(output);
-    
-
     return output;
 
   }

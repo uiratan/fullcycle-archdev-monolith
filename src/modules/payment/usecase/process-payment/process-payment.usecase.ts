@@ -12,12 +12,10 @@ export default class ProcessPaymentUseCase implements UseCaseInterface {
     const transaction = new Transaction({
       amount: input.amount,
       orderId: input.orderId
-    });
-
+    });  
     transaction.process();
-
     const transactionSaved = await this.transactionRepository.save(transaction);
-    
+
     return {
       transactionId: transactionSaved.id.id,
       orderId: transactionSaved.orderId,

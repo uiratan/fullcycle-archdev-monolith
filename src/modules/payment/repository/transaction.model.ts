@@ -1,7 +1,8 @@
 import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 
 @Table({
-  tableName: "transaction",
+  modelName: 'transaction-table',
+  tableName: 'transaction',
   timestamps: false,
 })
 export default class TransactionModel extends Model {
@@ -9,7 +10,7 @@ export default class TransactionModel extends Model {
   @Column({ allowNull: false })
   declare id: string;
 
-  @Column({ allowNull: false, field: "order_id" })
+  @Column({ allowNull: false })
   declare orderId: string;
 
   @Column({ allowNull: false })
@@ -18,9 +19,9 @@ export default class TransactionModel extends Model {
   @Column({ allowNull: false })
   declare status: string;
 
-  @Column({ allowNull: false, field: "created_at" })
+  @Column({ allowNull: false })
   declare createdAt: Date;
 
-  @Column({ allowNull: false, field: "updated_at" })
+  @Column({ allowNull: false })
   declare updatedAt: Date;
 }

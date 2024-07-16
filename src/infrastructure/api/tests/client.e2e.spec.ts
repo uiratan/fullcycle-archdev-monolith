@@ -28,7 +28,7 @@ describe("E2E test for client", () => {
     const response = await request(app)
       .post("/client")
       .send({
-        id: "111",
+        id: "1",
         name: "client 1",
         email: "client@email.com",
         document: "123",
@@ -43,7 +43,7 @@ describe("E2E test for client", () => {
       });  
 
     expect(response.status).toBe(200);
-    expect(response.body.id).toBe("111");    
+    expect(response.body.id).toBe("1");    
     expect(response.body.name).toBe("client 1");    
     expect(response.body.email).toBe("client@email.com");    
     expect(response.body.document).toBe("123");    

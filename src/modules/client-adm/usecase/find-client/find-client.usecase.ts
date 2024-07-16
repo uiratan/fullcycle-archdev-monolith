@@ -1,5 +1,4 @@
 import UseCaseInterface from "../../../@shared/domain/usecase/use-case.interface";
-import Address from "../../../@shared/domain/value-object/address.value-object";
 import ClientGateway from "../../gateway/client.gateway";
 import { FindClientInputDto, FindClientOutputDto } from "./find-client.usecase.dto";
 
@@ -11,12 +10,7 @@ export default class FindClientUsecase implements UseCaseInterface {
   }
 
   async execute(input: FindClientInputDto) : Promise<FindClientOutputDto> {    
-    // console.log(">>>>>>>>>>>>>>>>> FindClientUsecase");
-    // console.log(input);
-    
     const client = await this._clientRepository.find(input.id);    
-
-    // console.log(client);
     
     return {
       id: client.id.id,
