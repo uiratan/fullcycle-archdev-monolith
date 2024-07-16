@@ -1,31 +1,30 @@
 import { Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
-import { OrderModel } from "./order.model";
+import OrderModel from "./order.model";
 
 @Table({
   tableName: "client",
   timestamps: false
 })
-export class ClientOrderModel extends Model {
-
+export default class ClientOrderModel extends Model {
   @PrimaryKey
   @Column({ allowNull: false })
-  id: string;
+  declare id: string;
 
   @Column({ allowNull: false })
-  name: string;
+  declare name: string;
 
   @Column({ allowNull: false })
-  email: string;
+  declare email: string;
 
   @Column({ allowNull: false })
-  address: string;
+  declare address: string;
 
   @HasMany(() => OrderModel)
-  players: OrderModel[];
+  declare players: OrderModel[];
 
   @Column({ allowNull: false })
-  createdAt: Date;
+  declare createdAt: Date;
 
   @Column({ allowNull: false })
-  updatedAt: Date;
+  declare updatedAt: Date;
 }

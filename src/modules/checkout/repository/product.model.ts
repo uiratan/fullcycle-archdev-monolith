@@ -1,8 +1,8 @@
 import { BelongsTo, Column, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
-import { OrderModel } from "./order.model";
+import OrderModel from "./order.model";
 
 @Table({
-  tableName: 'products',
+  tableName: 'product',
   timestamps: false
 })
 export default class ProductOrderModel extends Model {

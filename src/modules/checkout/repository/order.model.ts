@@ -1,13 +1,13 @@
 import { BelongsTo, Column, ForeignKey, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { Product } from "../domain/product.entity";
-import { ClientOrderModel } from "./client.model";
+import ClientOrderModel from "./client.model";
 import ProductOrderModel from "./product.model";
 
 @Table({
   tableName: "order",
   timestamps: false  
 })
-export class OrderModel extends Model {
+export default class OrderModel extends Model {
 
   @PrimaryKey
   @Column({ allowNull: false })

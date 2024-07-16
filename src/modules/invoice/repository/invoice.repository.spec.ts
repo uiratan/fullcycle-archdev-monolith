@@ -18,7 +18,7 @@ describe("Invoice repository unit test", () => {
       sync: { force: true },
     });
 
-    sequelize.addModels([InvoiceModel, InvoiceItemModel]);
+    sequelize.addModels([InvoiceItemModel, InvoiceModel, ]);
     await sequelize.sync();
   });
 

@@ -75,7 +75,7 @@ describe("Place Order Usecase unit test", () => {
 
   describe("getProducts method", () => {
     beforeAll(() => {
-      jest.useFakeTimers("modern");
+      jest.useFakeTimers();
       jest.setSystemTime(mockDate);
     });
 
@@ -128,7 +128,7 @@ describe("Place Order Usecase unit test", () => {
 
   describe("execute method", () => {
     beforeAll(() => {
-      jest.useFakeTimers("modern");
+      jest.useFakeTimers();
       jest.setSystemTime(mockDate);
     });
 

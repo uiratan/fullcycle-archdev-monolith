@@ -1,5 +1,4 @@
 import { Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
-import Address from "../../@shared/domain/value-object/address.value-object";
 import InvoiceItemModel from "./invoice-item.model";
 
 @Table({
@@ -8,40 +7,42 @@ import InvoiceItemModel from "./invoice-item.model";
 })
 export default class InvoiceModel extends Model {
   @PrimaryKey
-  @Column({allowNull: false})
-  id: string;
+  @Column({ allowNull: false })
+  declare id: string;
 
-  @Column({allowNull: false})
-  name: string;
+  @Column({ allowNull: false })
+  declare name: string;
 
-  @Column({allowNull: false})
-  document: string;
-
-  @Column
-  street: string;
-  
-  @Column
-  number: string;
+  @Column({ allowNull: false })
+  declare document: string;
 
   @Column
-  complement: string;
+  declare street: string;
 
   @Column
-  city: string;
+  declare number: string;
 
   @Column
-  state: string;
+  declare complement: string;
 
   @Column
-  zipCode: string;
+  declare city: string;
+
+  @Column
+  declare state: string;
+
+  @Column
+  declare zipCode: string;
 
   @HasMany(() => InvoiceItemModel)
-  items: InvoiceItemModel[];
+  // declare items: InvoiceItemModel[];
+  declare items: ReturnType<() => InvoiceItemModel[]>;
 
-  @Column({allowNull: false})
-  createdAt: Date;
 
-  @Column({allowNull: false})
-  updatedAt: Date;
+  @Column({ allowNull: false })
+  declare createdAt: Date;
+
+  @Column({ allowNull: false })
+  declare updatedAt: Date;
 }
 
